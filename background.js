@@ -1,5 +1,5 @@
 chrome.webRequest.onBeforeRequest.addListener(details =>{
-    console.log(details.url);
+    // console.log(details.url);
     chrome.tabs.query({ active: true, currentWindow: true },  () =>{
         chrome.tabs.sendMessage(details.tabId, {actionName: "checkInjection", actionReqUrl: details.url}, async (response)=>{
             if (chrome.runtime.lastError) await sleep(250);
@@ -9,9 +9,9 @@ chrome.webRequest.onBeforeRequest.addListener(details =>{
                         null, { file: "content.js" },
                         ()=>chrome.tabs.sendMessage(details.tabId, {actionName: "bindDate", actionReqUrl: details.url})
                     );
-                    console.log(">>Injectedd!!")
+                    // console.log(">>Injectedd!!")
                 } else {
-                    console.log(">>Already injected!");
+                    // console.log(">>Already injected!");
                     chrome.tabs.sendMessage(details.tabId, {actionName: "bindDate", actionReqUrl: details.url});
                 }
             }
