@@ -1,0 +1,17 @@
+{
+  "author": "kruzchy",
+  "manifest_version": 2,
+  "name": "MS Teams Enhancer",
+  "version": "0.1.0",
+  "description": "Enhancements to MS Teams",
+  "permissions": [
+    "webRequest",
+    "https://teams.microsoft.com/*",
+    "activeTab",
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  }
+}
